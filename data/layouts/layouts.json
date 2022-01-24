@@ -92,14 +92,14 @@
       "blockdata_filepath": "data/layouts/EverGrandeCity/map.bin"
     },
     {
-      "id": "LAYOUT_LITTLEROOT_TOWN",
-      "name": "LittlerootTown_Layout",
-      "width": 20,
-      "height": 20,
+      "id": "LAYOUT_HAIFA_CITY",
+      "name": "HaifaCity_Layout",
+      "width": 60,
+      "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/LittlerootTown/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootTown/map.bin"
+      "border_filepath": "data/layouts/HaifaCity/border.bin",
+      "blockdata_filepath": "data/layouts/HaifaCity/map.bin"
     },
     {
       "id": "LAYOUT_OLDALE_TOWN",
