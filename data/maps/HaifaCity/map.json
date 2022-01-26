@@ -30,7 +30,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Twin",
+      "script": "HaifaCity_EventScript_Twin",
       "flag": "0"
     },
     {
@@ -43,7 +43,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_FatMan",
+      "script": "HaifaCity_EventScript_FatMan",
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN"
     },
     {
@@ -56,7 +56,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Boy",
+      "script": "HaifaCity_EventScript_Boy",
       "flag": "0"
     },
     {
@@ -69,7 +69,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Mom",
+      "script": "HaifaCity_EventScript_Mom",
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE"
     },
     {
@@ -136,7 +136,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "0",
-      "script": "LittlerootTown_EventScript_NeedPokemonTriggerLeft"
+      "script": "HaifaCity_EventScript_NeedPokemonTriggerLeft"
     },
     {
       "type": "trigger",
@@ -145,7 +145,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "0",
-      "script": "LittlerootTown_EventScript_NeedPokemonTriggerRight"
+      "script": "HaifaCity_EventScript_NeedPokemonTriggerRight"
     },
     {
       "type": "trigger",
@@ -154,7 +154,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "1",
-      "script": "LittlerootTown_EventScript_GoSaveBirchTrigger"
+      "script": "HaifaCity_EventScript_GoSaveBirchTrigger"
     },
     {
       "type": "trigger",
@@ -163,7 +163,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger4"
+      "script": "HaifaCity_EventScript_GiveRunningShoesTrigger4"
     },
     {
       "type": "trigger",
@@ -172,7 +172,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger5"
+      "script": "HaifaCity_EventScript_GiveRunningShoesTrigger5"
     },
     {
       "type": "trigger",
@@ -181,7 +181,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger2"
+      "script": "HaifaCity_EventScript_GiveRunningShoesTrigger2"
     },
     {
       "type": "trigger",
@@ -190,7 +190,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger3"
+      "script": "HaifaCity_EventScript_GiveRunningShoesTrigger3"
     },
     {
       "type": "trigger",
@@ -199,7 +199,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger0"
+      "script": "HaifaCity_EventScript_GiveRunningShoesTrigger0"
     },
     {
       "type": "trigger",
@@ -208,7 +208,7 @@
       "elevation": 3,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger1"
+      "script": "HaifaCity_EventScript_GiveRunningShoesTrigger1"
     }
   ],
   "bg_events": [
@@ -218,7 +218,7 @@
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_TownSign"
+      "script": "HaifaCity_EventScript_TownSign"
     },
     {
       "type": "sign",
@@ -226,7 +226,7 @@
       "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_BirchsLabSign"
+      "script": "HaifaCity_EventScript_BirchsLabSign"
     },
     {
       "type": "sign",
@@ -234,7 +234,7 @@
       "y": 8,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_BrendansHouseSign"
+      "script": "HaifaCity_EventScript_BrendansHouseSign"
     },
     {
       "type": "sign",
@@ -242,7 +242,7 @@
       "y": 8,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_MaysHouseSign"
+      "script": "HaifaCity_EventScript_MaysHouseSign"
     }
   ]
 }

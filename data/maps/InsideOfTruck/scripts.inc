@@ -1,17 +1,5 @@
 InsideOfTruck_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, InsideOfTruck_OnLoad
-	map_script MAP_SCRIPT_ON_RESUME, InsideOfTruck_OnResume
 	.byte 0
-
-InsideOfTruck_OnLoad:
-	setmetatile 4, 1, METATILE_InsideOfTruck_ExitLight_Top, FALSE
-	setmetatile 4, 2, METATILE_InsideOfTruck_ExitLight_Mid, FALSE
-	setmetatile 4, 3, METATILE_InsideOfTruck_ExitLight_Bottom, FALSE
-	end
-
-InsideOfTruck_OnResume:
-	setstepcallback STEP_CB_TRUCK
-	end
 
 InsideOfTruck_EventScript_SetIntroFlags::
 	lockall
@@ -47,12 +35,78 @@ InsideOfTruck_EventScript_SetIntroFlagsFemale::
 	releaseall
 	end
 
-InsideOfTruck_EventScript_MovingBox::
-	msgbox InsideOfTruck_Text_BoxPrintedWithMonLogo, MSGBOX_SIGN
+InsideOfTruck_EventScript_Sign::
+	msgbox InsideOfTruck_Text_Sign, MSGBOX_SIGN
 	end
 
-InsideOfTruck_Text_BoxPrintedWithMonLogo:
-	.string "The box is printed with a POKéMON logo.\p"
-	.string "It's a POKéMON brand moving and\n"
-	.string "delivery service.$"
+InsideOfTruck_EventScript_SmashFemale:: 
+	msgbox InsideOfTruck_Text_SmashFemale, MSGBOX_NPC
+	turnobject 1, DIR_WEST
+	end	
+	
+InsideOfTruck_EventScript_SmashMale:: 
+	msgbox InsideOfTruck_Text_SmashMale, MSGBOX_NPC
+	turnobject 3, DIR_EAST
+	end	
+
+InsideOfTruck_EventScript_SmashMale2:: 
+	msgbox InsideOfTruck_Text_SmashMale2, MSGBOX_NPC
+	end
+
+Script_InsideOfTruck_EventScript_Celebi::
+	lock
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	setvar VAR_TEMP_0, 1
+	applymovement 4, CelebiMovement
+	waitmovement 0
+	playmoncry SPECIES_CELEBI, 0
+	msgbox InsideOfTruck_Text_Celebi, MSGBOX_DEFAULT
+	waitmoncry
+	closemessage
+	applymovement 4, CelebiMovement2
+	waitmovement 0
+	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F, 255, 8, 5
+	end
+
+
+InsideOfTruck_Text_Sign: 
+	.string "Lake of Serenity.\n"
+	.string "Relaxing resident for POKéMON.$"
+
+InsideOfTruck_Text_SmashFemale:
+	.string "Lake of Serenity has been known to be a\n"
+	.string "relaxing resident for POKéMON.\p"		
+	.string "It's deep in the woods so people can not\n"
+	.string "reach it so easily.$"
+
+	
+InsideOfTruck_Text_SmashMale:
+	.string "Do not interfere, kid. We are\n"
+	.string "investigating the Lake of Serenity.$"	
+	
+InsideOfTruck_Text_SmashMale2:
+	.string "Woah kid, where did you come from?$"
+
+InsideOfTruck_Text_Celebi::
+	.string "{COLOR GREEN}Celebi: {COLOR DARK_GRAY}Biii Celebiii.\p"
+	.string "The sound coming from Celebi's voice\n"
+	.string "sounded like a stress single.$"
+
+CelebiMovement:
+	walk_down
+	walk_down
+	face_right
+	delay_16
+	face_left
+	delay_16
+	face_down
+	step_end
+	
+CelebiMovement2:
+	walk_up	
+	walk_up	
+	walk_up	
+	walk_up	
+	delay_8
+	step_end
 
