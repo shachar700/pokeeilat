@@ -968,6 +968,11 @@ static const u8 sDawnStoneDesc[] = _(
     "species of Pokémon\n"
     "evolve.");
 
+static const u8 sTradeStoneDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
 static const u8 sSweetAppleDesc[] = _( // Todo
     "?????");
 

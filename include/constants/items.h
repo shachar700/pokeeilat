@@ -272,6 +272,7 @@
 #define ITEM_SHINY_STONE 218
 #define ITEM_DUSK_STONE 219
 #define ITEM_DAWN_STONE 220
+#define ITEM_TRADE_STONE 760 //eilat
 #define ITEM_SWEET_APPLE 221
 #define ITEM_TART_APPLE 222
 #define ITEM_CRACKED_POT 223
@@ -930,7 +931,7 @@
 #define ITEM_RUBY 758
 #define ITEM_SAPPHIRE 759
 
-#define ITEMS_COUNT 760
+#define ITEMS_COUNT 761
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS
