@@ -240,6 +240,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_SHINY_STONE] = {gItemIcon_ShinyStone, gItemIconPalette_ShinyStone},
     [ITEM_DUSK_STONE] = {gItemIcon_DuskStone, gItemIconPalette_DuskStone},
     [ITEM_DAWN_STONE] = {gItemIcon_DawnStone, gItemIconPalette_DawnStone},
+    [ITEM_TRADE_STONE] = {gItemIcon_TradeStone, gItemIconPalette_TradeStone},
     [ITEM_SWEET_APPLE] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_TART_APPLE] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo
     [ITEM_CRACKED_POT] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, // Todo

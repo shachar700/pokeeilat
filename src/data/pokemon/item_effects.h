@@ -556,6 +556,7 @@ const u8 *const gItemEffectTable[] =
     [ITEM_WATER_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
     [ITEM_LEAF_STONE - ITEM_POTION]     = gItemEffect_EvoStone,
     [ITEM_DAWN_STONE - ITEM_POTION]     = gItemEffect_EvoStone,
+    [ITEM_TRADE_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
     [ITEM_DUSK_STONE - ITEM_POTION]     = gItemEffect_EvoStone,
     [ITEM_SHINY_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
     [ITEM_ICE_STONE - ITEM_POTION]      = gItemEffect_EvoStone,
