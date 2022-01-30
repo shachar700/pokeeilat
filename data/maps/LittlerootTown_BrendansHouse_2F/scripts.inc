@@ -10,6 +10,7 @@ PlayersHouse_Mapscript2_Init::
 
 PlayersHouse_2F_EventScript_MeetMom::
 	lockall
+	playse SE_EXIT
 	delay 10
 	addobject LOCALID_MOM
     applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_2F_Movement_MomEntersRoom   
@@ -24,6 +25,7 @@ PlayersHouse_2F_EventScript_MeetMom::
 	closemessage
 	applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_2F_Movement_MomExitsRoom   
 	waitmovement 0
+	playse SE_EXIT
 	removeobject LOCALID_MOM
 	setflag FLAG_PLAYERSHOUSE_MOMENTERSROOM
 	setvar VAR_HAIFA_CITY_MOMS_STATE, 1

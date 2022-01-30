@@ -65,4 +65,6 @@ LittlerootTown_1F_Movement_ToTheTable:
     walk_down
     walk_right
     walk_up
+	face_right
 	step_end
+
