@@ -15,12 +15,7 @@
   "connections": [
     {
       "direction": "up",
-      "offset": 0,
-      "map": "MAP_OLDALE_TOWN"
-    },
-    {
-      "direction": "down",
-      "offset": 0,
+      "offset": -15,
       "map": "MAP_HAIFA_CITY"
     }
   ],

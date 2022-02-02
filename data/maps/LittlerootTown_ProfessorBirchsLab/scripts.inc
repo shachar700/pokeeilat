@@ -663,6 +663,42 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
 	releaseall
 	end
 
+Script_GivePokemonDemo::
+	lock
+	faceplayer
+	setflag FLAG_SYS_POKEMON_GET
+	msgbox Text_TakeDratini, MSGBOX_DEFAULT
+	getpartysize
+	compare VAR_RESULT, 6
+	goto_if_eq Script_PlayerHasFullParty
+	givemon SPECIES_HAUNTER, 25, ITEM_NONE
+	givemon SPECIES_MACHOKE, 25, ITEM_NONE
+	givemon SPECIES_GRAVELER, 25, ITEM_NONE
+	givemon SPECIES_BOLDORE, 25, ITEM_NONE
+	givemon SPECIES_KADABRA, 25, ITEM_NONE
+	givemon SPECIES_VULPIX, 25, ITEM_NONE
+	giveitem ITEM_FIRE_STONE, 1
+	giveitem ITEM_TRADE_STONE, 5
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Text_ReceivedDratini, MSGBOX_DEFAULT
+	waitfanfare
+	release
+	end
+
+Script_PlayerHasFullParty::
+	msgbox Text_PlayerHasFullParty, MSGBOX_DEFAULT
+	release
+	end
+
+Text_TakeDratini:
+	.string "Please, take this Haunter.$"
+
+Text_ReceivedDratini:
+	.string "{PLAYER} received a Haunter!$"
+
+Text_PlayerHasFullParty:
+	.string "Ah, your party is full.$"
+
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork:
 	.string "Hunh? PROF. BIRCH?\p"
 	.string "The PROF's away on fieldwork.\n"

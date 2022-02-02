@@ -698,13 +698,13 @@ static void QueueAnimTiles_General_Flower(u16 timer)
 static void QueueAnimTiles_General_Water(u16 timer)
 {
     u8 i = timer % 8;
-    AppendTilesetAnimToBuffer(gTilesetAnims_General_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(480)), 0x80);
+    AppendTilesetAnimToBuffer(gTilesetAnims_General_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(490)), 0x80);
 }
 
 static void QueueAnimTiles_General_SandWaterEdge(u16 timer)
 {
     u16 i = timer % 8;
-    AppendTilesetAnimToBuffer(gTilesetAnims_General_SandWaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(494)), 0x80);
+    AppendTilesetAnimToBuffer(gTilesetAnims_General_SandWaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(484)), 0xc0);
 }
 
 static void QueueAnimTiles_General_Waterfall(u16 timer)
@@ -998,7 +998,7 @@ static void TilesetAnim_BattleFrontierOutsideEast(u16 timer)
 static void QueueAnimTiles_General_LandWaterEdge(u16 timer)
 {
     u16 i = timer % 4;
-    AppendTilesetAnimToBuffer(gTilesetAnims_General_LandWaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(480)), 0xc0);
+    AppendTilesetAnimToBuffer(gTilesetAnims_General_LandWaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(480)), 0x80);
 }
 
 static void QueueAnimTiles_Lavaridge_Steam(u8 timer)
