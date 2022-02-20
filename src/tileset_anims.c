@@ -661,14 +661,14 @@ static void TilesetAnim_General(u16 timer)
         QueueAnimTiles_General_Yellow_Flower(timer >> 4);
     if (timer % 16 == 0)
         QueueAnimTiles_General_Flower(timer >> 4);
-    if (timer % 16 == 1)
+    /*if (timer % 16 == 1)
         QueueAnimTiles_General_Water(timer >> 4);
     if (timer % 16 == 2)
         QueueAnimTiles_General_SandWaterEdge(timer >> 4);
     if (timer % 16 == 3)
         QueueAnimTiles_General_Waterfall(timer >> 4);
     if (timer % 16 == 4)
-        QueueAnimTiles_General_LandWaterEdge(timer >> 4);
+        QueueAnimTiles_General_LandWaterEdge(timer >> 4); */
 }
 
 static void TilesetAnim_Building(u16 timer)
@@ -695,6 +695,7 @@ static void QueueAnimTiles_General_Flower(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_General_Flower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(452)), 0x80);
 }
 
+/*
 static void QueueAnimTiles_General_Water(u16 timer)
 {
     u8 i = timer % 8;
@@ -711,7 +712,7 @@ static void QueueAnimTiles_General_Waterfall(u16 timer)
 {
     u16 i = timer % 4;
     AppendTilesetAnimToBuffer(gTilesetAnims_General_Waterfall[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(506)), 0xc0);
-}
+}*/
 
 void InitTilesetAnim_Petalburg(void)
 {
@@ -994,12 +995,13 @@ static void TilesetAnim_BattleFrontierOutsideEast(u16 timer)
     if (timer % 8 == 0)
         QueueAnimTiles_BattleFrontierOutsideEast_Flag(timer >> 3);
 }
-
+/*
 static void QueueAnimTiles_General_LandWaterEdge(u16 timer)
 {
     u16 i = timer % 4;
     AppendTilesetAnimToBuffer(gTilesetAnims_General_LandWaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(480)), 0x80);
 }
+*/
 
 static void QueueAnimTiles_Lavaridge_Steam(u8 timer)
 {
