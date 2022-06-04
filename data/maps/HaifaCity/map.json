@@ -22,8 +22,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 38,
-      "y": 38,
+      "x": 34,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -51,12 +51,12 @@
       "x": 30,
       "y": 31,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_RIGHT_DOWN_UP",
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_DOWN_RIGHT_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HaifaCity_EventScript_LittleKid",
       "flag": "0"
     },
     {
@@ -64,33 +64,33 @@
       "x": 29,
       "y": 32,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HaifaCity_EventScript_LittleGirl",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
-      "x": 25,
-      "y": 42,
+      "x": 31,
+      "y": 44,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK"
+      "flag": "FLAG_RESCUED_BIRCH"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 26,
-      "y": 42,
+      "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
+      "x": 29,
+      "y": 44,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -101,24 +101,24 @@
   ],
   "warp_events": [
     {
-      "x": 20,
-      "y": 38,
+      "x": 39,
+      "y": 40,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+      "dest_map": "MAP_HAIFA_CITY",
       "dest_warp_id": 0
     },
     {
-      "x": 29,
-      "y": 40,
+      "x": 48,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
       "dest_warp_id": 0
     },
     {
-      "x": 35,
-      "y": 44,
+      "x": 28,
+      "y": 40,
       "elevation": 0,
-      "dest_map": "MAP_HAIFA_CITY",
+      "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
       "dest_warp_id": 0
     },
     {
@@ -157,8 +157,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 48,
-      "y": 21,
+      "x": 20,
+      "y": 38,
       "elevation": 0,
       "dest_map": "MAP_HAIFA_CITY",
       "dest_warp_id": 0
@@ -172,46 +172,29 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "1",
-      "script": "HaifaCity_EventScript_EncounterProfRight"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 41,
-      "elevation": 0,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "1",
-      "script": "HaifaCity_EventScript_EncounterProfDown"
-    }
+
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 32,
-      "y": 44,
+      "x": 36,
+      "y": 40,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HaifaCity_EventScript_TownSign"
     },
     {
       "type": "sign",
-      "x": 27,
-      "y": 40,
+      "x": 46,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HaifaCity_EventScript_BirchsLabMailbox"
     },
     {
       "type": "sign",
-      "x": 22,
-      "y": 39,
+      "x": 26,
+      "y": 40,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HaifaCity_EventScript_PlayersMailbox"
@@ -226,8 +209,8 @@
     },
     {
       "type": "sign",
-      "x": 33,
-      "y": 44,
+      "x": 37,
+      "y": 40,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HaifaCity_EventScript_RivalsMailbox"
