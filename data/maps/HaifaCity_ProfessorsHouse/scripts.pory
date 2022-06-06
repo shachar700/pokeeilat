@@ -1,0 +1,162 @@
+mapscripts HaifaCity_ProfessorsHouse_MapScripts {
+}
+
+script HaifaCity_EventScript_GiveMon {
+    lockall
+    if (flag(FLAG_SYS_POKEMON_GET) == FALSE) {
+    msgbox("Which starter would you like?")
+    multichoice(20, 0, MULTI_CHOOSE_STARTER, 1)
+    switch (var(VAR_RESULT)) {
+        case 0: call(GiveDratini)
+	    case 1: call(GiveLarvitar)
+        case 2: call(GiveBagon)
+	    case 3: call(GiveBeldum)
+        case 4: call(GiveGible)
+	    case 5: call(GiveDeino)
+        case 6: call(GiveGoomy)
+        case 7: call(GiveJangmo_o)
+        case 8: call(GiveDreepy)
+    }
+    setflag(FLAG_SYS_POKEMON_GET)
+    } else {
+        msgbox("Good luck on your journey!")
+    }
+    waitmessage
+    releaseall
+    end
+}
+
+script GiveDratini {
+    showmonpic(SPECIES_DRATINI, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_DRATINI, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Dratini to Party")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script GiveLarvitar {
+    showmonpic(SPECIES_LARVITAR, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_LARVITAR, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Larvitar")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script GiveBagon {
+    showmonpic(SPECIES_BAGON, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_BAGON, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Bagon")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script GiveBeldum {
+    showmonpic(SPECIES_BELDUM, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_BELDUM, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Beldum")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script GiveGible {
+    showmonpic(SPECIES_GIBLE, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_GIBLE, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Gible")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script GiveDeino {
+    showmonpic(SPECIES_DEINO, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_DEINO, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Deino")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+
+script GiveGoomy {
+    showmonpic(SPECIES_GOOMY, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_GOOMY, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Goomy")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script GiveJangmo_o {
+    showmonpic(SPECIES_BAGON, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_BAGON, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Bagon")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script GiveDreepy {
+    showmonpic(SPECIES_DREEPY, 10,3)
+    msgbox("Would you like this Pokemon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_DREEPY, 5, ITEM_NONE)
+        hidemonpic
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("Received Bagon")
+        call(NicknamePartyMon)
+    } else {
+        hidemonpic
+    }
+}
+
+script NicknamePartyMon {
+    msgbox("Give it a nickname?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+}

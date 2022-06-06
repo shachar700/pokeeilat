@@ -1,3 +1,4 @@
+raw `
 .set LOCALID_BIRCH, 5
 
 HaifaCity_MapScripts::
@@ -90,3 +91,4 @@ HaifaCity_Movement_PlayerGetsCloser:
 	walk_down
 	face_right
 	step_end
+`
