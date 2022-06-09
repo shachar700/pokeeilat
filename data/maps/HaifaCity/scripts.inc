@@ -1,9 +1,12 @@
 .set LOCALID_BIRCH, 5
 
 HaifaCity_MapScripts::
-	
+	map_script MAP_SCRIPT_ON_TRANSITION, HaifaCity_EventScript_OnTransition
 	.byte 0
 
+HaifaCity_EventScript_OnTransition:
+	call_if_unset FLAG_UNUSED_0x021, HaifaCity_EventScript_SetUpRivalBattle
+	end
 
 HaifaCity_EventScript_CityGym::
 	msgbox HaifaCity_Text_CityGym, MSGBOX_NPC
@@ -90,3 +93,29 @@ HaifaCity_Movement_PlayerGetsCloser:
 	walk_down
 	face_right
 	step_end
+
+HaifaCity_EventScript_SetUpRivalBattle::
+	goto_if_unset FLAG_SYS_POKEMON_GET, HaifaCity_EventScript_SetUpRivalBattle_1
+	clearflag FLAG_TRAINER_BATTLE_1
+	return
+
+HaifaCity_EventScript_SetUpRivalBattle_1:
+	setflag FLAG_TRAINER_BATTLE_1
+	return
+
+
+HaifaCity_EventScript_RivalBattle::
+	trainerbattle_single TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, May_Outro
+	msgbox PostBattle_May, MSGBOX_AUTOCLOSE
+	waitmessage
+	end
+
+
+May_Intro::
+	.string "You'll never win$"
+
+May_Outro::
+	.string "Doesn't count$"
+
+PostBattle_May::
+	.string "I'll win next time$"
