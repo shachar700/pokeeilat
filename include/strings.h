@@ -3026,10 +3026,5 @@ extern const u8 gText_Dratini[];
 extern const u8 gText_Larvitar[];
 extern const u8 gText_Bagon[];
 extern const u8 gText_Beldum[];
-extern const u8 gText_Gible[];
-extern const u8 gText_Deino[];
-extern const u8 gText_Goomy[];
-extern const u8 gText_Jangmo_o[];
-extern const u8 gText_Dreepy[];
 
 #endif // GUARD_STRINGS_H

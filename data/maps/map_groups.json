@@ -1,6 +1,7 @@
 {
   "layouts_table_label": "gMapLayouts",
   "group_order": [
+    "gMapGroup_MyTownsAndRoutes",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -36,6 +37,9 @@
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124"
   ],
+  "gMapGroup_MyTownsAndRoutes": [
+    "HaifaCity"
+  ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
     "SlateportCity",
@@ -46,7 +50,6 @@
     "MossdeepCity",
     "SootopolisCity",
     "EverGrandeCity",
-    "HaifaCity",
     "OldaleTown",
     "DewfordTown",
     "LavaridgeTown",
@@ -100,8 +103,7 @@
     "LittlerootTown_BrendansHouse_2F",
     "LittlerootTown_MaysHouse_1F",
     "LittlerootTown_MaysHouse_2F",
-    "LittlerootTown_ProfessorBirchsLab",
-    "HaifaCity_ProfessorsHouse"
+    "LittlerootTown_ProfessorBirchsLab"
   ],
   "gMapGroup_IndoorOldale": [
     "OldaleTown_House1",
