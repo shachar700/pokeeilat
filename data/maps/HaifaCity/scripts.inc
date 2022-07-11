@@ -1,22 +1,14 @@
 .set LOCALID_BIRCH, 5
 
 HaifaCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, HaifaCity_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, HaifaCity_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, HaifaCity_EventScript_OnFrame
 	.byte 0
 
-HaifaCity_OnTransition:
-	call_if_eq VAR_HAIFA_CITY_STATE 0, HaifaCity_EventScript_SetProfNearHome
-
-HaifaCity_OnFrame:
-	map_script_2 VAR_HAIFA_CITY_STATE, 0, HaifaCity_EventScript_FollowMeToLab	
+HaifaCity_EventScript_OnFrame:
+	map_script_2 VAR_HAIFA_CITY_STATE, 0, HaifaCity_EventScript_PickStarter	
 	.2byte 0
 
-HaifaCity_EventScript_SetProfNearHome:
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
-	return
-
-HaifaCity_EventScript_FollowMeToLab::
+HaifaCity_EventScript_PickStarter::
 	lockall
 	applymovement LOCALID_BIRCH, Common_Movement_FacePlayer
 	waitmovement 0
@@ -26,32 +18,14 @@ HaifaCity_EventScript_FollowMeToLab::
 	applymovement LOCALID_BIRCH, HaifaCity_Movement_WalkInPlace   
 	waitmovement 0
 	msgbox HaifaCity_Text_ProfIntro, MSGBOX_DEFAULT
-	closemessage	
+	closemessage
+	applymovement LOCALID_BIRCH, HaifaCity_Movement_BirchWalksAway
+	waitmovement 0
+	removeobject LOCALID_BIRCH
+	setflag FLAG_HIDE_BIRCH_HAIFA
 	setvar VAR_HAIFA_CITY_STATE, 1
-	applymovement LOCALID_BIRCH, HaifaCity_Movement_ProfWalksToLab
-	applymovement OBJ_EVENT_ID_PLAYER, HaifaCity_Movement_PlayerWalksToLab
-	waitmovement 0
-	opendoor VAR_0x8004, VAR_0x8005
-	waitdooranim
-	applymovement LOCALID_BIRCH, HaifaCity_Movement_ProfApproachDoor
-	applymovement OBJ_EVENT_ID_PLAYER, HaifaCity_Movement_PlayerApproachDoor
-	waitmovement 0
-	opendoor VAR_0x8004, VAR_0x8005
-	waitdooranim
-	applymovement LOCALID_MOM, HaifaCity_Movement_ProfEnterHouse
-	applymovement OBJ_EVENT_ID_PLAYER, HaifaCity_Movement_PlayerEnterHouse
-	waitmovement 0
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
-	setvar VAR_LITTLEROOT_INTRO_STATE, 3
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
-	closedoor VAR_0x8004, VAR_0x8005
-	waitdooranim
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK
-	warpsilent MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 5, 10
-	waitstate
 	releaseall
 	end
-
 
 HaifaCity_EventScript_CityGym::
 	msgbox HaifaCity_Text_CityGym, MSGBOX_NPC
@@ -90,11 +64,11 @@ HaifaCity_EventScript_RivalsMailbox::
 	end
 
 HaifaCity_Text_ProfIntro:
-	.string "PROF: Oh hi there {PLAYER}!\n"
-	.string "Your parents told me to help you\l"
-	.string "start your journey with your\l"
-	.string "very first Pokemon.\p"
-	.string "Follow me to my lab.$"
+	.string "PROF: Oh hi there {PLAYER}!\p"
+	.string "I came here to let you know that\n"
+	.string "your very first Pokemon is\l"
+	.string "waiting for you.\p"
+	.string "Come see me at my POKEMON LAB.$"
 
 HaifaCity_Text_CanUsePCToStoreItems:
 	.string "I never thought of the day people could\n"
@@ -231,7 +205,6 @@ HaifaCity_Movement_PlayerWalksToLab:
 	walk_right
 	walk_up
 	walk_up
-	walk_up
 	step_end
 
 HaifaCity_Movement_ProfApproachDoor:
@@ -248,10 +221,41 @@ HaifaCity_Movement_ProfEnterHouse:
 HaifaCity_Movement_PlayerApproachDoor:
 	delay_16
 	delay_8
-	walk_in_place_faster_up
+	walk_up
 	step_end
 
 HaifaCity_Movement_PlayerEnterHouse:
 	walk_up
+	set_invisible
+	step_end
+
+HaifaCity_Movement_BirchWalksAway:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	walk_up
 	step_end
+
+HaifaCity_EventScript_WonderOffSouth::
+	lock
+	msgbox HaifaCity_EventScript_WonderOffSouth_Text_0
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerWalksUp
+	waitmovement 0
+	release
+	return
+
+
+PlayerWalksUp:
+	walk_up
+	step_end
+
+HaifaCity_EventScript_WonderOffSouth_Text_0:
+	.string "I should probably not wonder off\n"
+	.string "without a Pokemon.$"

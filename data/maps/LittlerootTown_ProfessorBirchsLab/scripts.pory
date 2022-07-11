@@ -1,0 +1,15 @@
+mapscripts ProfessorBirchsLab_MapScripts {
+}
+
+script Start_StarterChoose_Sequence{
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBirch)
+    waitmovement(0)
+    msgbox(BeginAdventureText)
+    waitmessage
+    closemessage
+    applymovement(4, ProfMove)
+    waitmovement(0)
+    setvar(HAIFA_CITY_STATE, 2)
+    release
+}
