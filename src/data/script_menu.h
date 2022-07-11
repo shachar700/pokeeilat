@@ -775,7 +775,6 @@ static const struct MenuAction MultichoiceList_ChooseStarter[] =
 {
     {gText_Dratini},
     {gText_Larvitar},
-    {gText_Bagon},
     {gText_Beldum},
 };
 

@@ -75,4 +75,3 @@ CelebiMovement2:
 	walk_up	
 	delay_8
 	step_end
-

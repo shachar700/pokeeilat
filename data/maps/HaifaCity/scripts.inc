@@ -246,6 +246,7 @@ HaifaCity_Movement_BirchWalksAway:
 HaifaCity_EventScript_WonderOffSouth::
 	lock
 	msgbox HaifaCity_EventScript_WonderOffSouth_Text_0
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerWalksUp
 	waitmovement 0
 	release

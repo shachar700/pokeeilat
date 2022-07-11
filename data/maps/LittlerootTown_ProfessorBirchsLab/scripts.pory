@@ -1,15 +1,133 @@
-mapscripts ProfessorBirchsLab_MapScripts {
+raw `
+.set LOCALID_BIRCH, 1
+`
+mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+       VAR_HAIFA_CITY_STATE, 1: ComeCloser
+    ]
 }
 
-script Start_StarterChoose_Sequence{
+script ComeCloser {
     lock
-    applymovement(OBJ_EVENT_ID_PLAYER, MeetBirch)
+    setvar(VAR_HAIFA_CITY_STATE, 2)
+    applymovement(LOCALID_BIRCH, Common_Movement_FacePlayer)
+	waitmovement(0)
+    playse(SE_PIN)
+	applymovement(LOCALID_BIRCH, Common_Movement_ExclamationMark)
+	waitmovement(0)
+    msgbox(format("Oh Hi there {PLAYER}! Come closer so you can pick your first Pokemon."))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerGetsCloserToProf)
     waitmovement(0)
-    msgbox(BeginAdventureText)
+    msgbox(format("To get started on your journey, I'm gonna let you choose one of my little Pokemon that got hatched lately. Choose wisely."))
+    closemessage
+    call(PlayerChoosesStarter)
+    release
+}
+
+script PlayerChoosesStarter {
+    msgbox("Which starter will you choose?")
+    waitmessage
+    multichoice(25, 5, MULTI_CHOOSE_STARTER, 1)
+    closemessage
+    if (var(VAR_RESULT) == 0){
+        bufferspeciesname(STR_VAR_1, SPECIES_DRATINI)
+        setvar(VAR_STARTER_CHOICE, SPECIES_DRATINI)
+        goto(NewProfessor_EventScript_GiveStarter)
+    }
+    elif (var(VAR_RESULT) == 1){
+        bufferspeciesname(STR_VAR_1, SPECIES_LARVITAR)
+        setvar(VAR_STARTER_CHOICE, SPECIES_LARVITAR)
+        goto(NewProfessor_EventScript_GiveStarter)
+    }
+    elif (var(VAR_RESULT) == 2){
+        bufferspeciesname(STR_VAR_1, SPECIES_BELDUM)
+        setvar(VAR_STARTER_CHOICE, SPECIES_BELDUM)
+        goto(NewProfessor_EventScript_GiveStarter)
+    }
+    return
+}
+
+script NewProfessor_EventScript_GiveStarter{
+    showmonpic(VAR_STARTER_CHOICE, 10, 3)
+    playmoncry(VAR_STARTER_CHOICE, 0)
+    msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
+    waitmessage
+    waitmoncry
+    if(var(VAR_RESULT) == NO){
+        hidemonpic
+        closemessage
+        goto(PlayerChoosesStarter)
+    }
+    else {
+        givemon(VAR_STARTER_CHOICE, 5, ITEM_NONE)
+        getpartysize
+        if (var(VAR_RESULT) == 6) {
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("{PLAYER} Recieved {STR_VAR_1}!")
+            waitfanfare
+            call(NicknameBoxMon)
+            msgbox("Transferred {STR_VAR_1} to PC")
+        } else {
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("{PLAYER} Recieved {STR_VAR_1}!")
+            waitfanfare
+            call(NicknamePartyMon)
+        }
+    }
+    call(GivePokedex)
+    closemessage
+    return
+}
+
+script GivePokedex{
+    msgbox(format("Also, take this. It is a POKéDEX to help you document Pokemon along your journey."))
+    playfanfare(MUS_OBTAIN_ITEM)
+	message("{PLAYER} received the POKéDEX!$")
+	waitfanfare
+    closemessage
+	setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_ADVENTURE_STARTED)
+	special(SetUnlockedPokedexFlags)
+	setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+	setvar(VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
+    setflag(FLAG_SYS_NATIONAL_DEX)
+	special(EnableNationalPokedex)
+    msgbox("Also take these with you.", MSGBOX_DEFAULT)
+    giveitem(ITEM_POKE_BALL, 5)
+    msgbox(format("These allow you to catch your own Pokemon in tall grass so you can collect research for the Pokedex."), MSGBOX_DEFAULT)
     waitmessage
     closemessage
-    applymovement(4, ProfMove)
-    waitmovement(0)
-    setvar(HAIFA_CITY_STATE, 2)
     release
+	return
+}
+
+script NicknamePartyMon {
+    msgbox("Give a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+}
+
+script NicknameBoxMon{
+    msgbox("Give a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+}
+
+script ProfessorBirchStudy {
+    lock
+    faceplayer
+    msgbox(format("I study the Pseudo-Legendary Pokemon who has a lot of strength compared to other Pokemon."))
+    release
+    end
+}
+
+movement PlayerGetsCloserToProf {
+    walk_up
+    walk_right * 3
 }
