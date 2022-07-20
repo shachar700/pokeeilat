@@ -60,7 +60,6 @@ script NewProfessor_EventScript_GiveStarter{
         goto(PlayerChoosesStarter)
     }
     else {
-        setflag(FLAG_SYS_POKEMON_GET)
         givemon(VAR_STARTER_CHOICE, 5, ITEM_NONE)
         getpartysize
         if (var(VAR_RESULT) == 6) {
