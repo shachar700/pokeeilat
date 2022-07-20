@@ -96,7 +96,7 @@ PlayersHouse_2F_Text_PokeballDoll:
 	.string "Better leave it right where it is.$"
 
 PlayersHouse_2F_Text_GoodMorning:
-	.string "{COLOR RED}MOM:{COLOR DARK_GRAY} Good morning sunshine! I hope you\n"
+	.string "{COLOR RED}{SHADOW LIGHT_RED}MOM:{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} Good morning sunshine! I hope you\n"
 	.string "had a wonderful rest.\p"
 	.string "We are waiting for you downstairs.$"
 

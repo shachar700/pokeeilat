@@ -7,6 +7,9 @@
 
 // gMapGroup_MyTownsAndRoutes
 #define MAP_HAIFA_CITY (0 | (0 << 8))
+#define MAP_ROUTE1     (1 | (0 << 8))
+#define MAP_ROUTE2     (2 | (0 << 8))
+#define MAP_ACRE_TOWN  (3 | (0 << 8))
 
 // gMapGroup_TownsAndRoutes
 #define MAP_PETALBURG_CITY      (0 | (1 << 8))

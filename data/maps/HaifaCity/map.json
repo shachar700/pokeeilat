@@ -15,13 +15,13 @@
   "connections": [
     {
       "direction": "down",
-      "offset": 14,
-      "map": "MAP_ROUTE101"
+      "offset": 2,
+      "map": "MAP_ROUTE2"
     },
     {
       "direction": "right",
-      "offset": 27,
-      "map": "MAP_ROUTE102"
+      "offset": -10,
+      "map": "MAP_ROUTE1"
     }
   ],
   "object_events": [
@@ -157,7 +157,7 @@
     },
     {
       "x": 43,
-      "y": 9,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_HAIFA_CITY",
       "dest_warp_id": 0
@@ -190,6 +190,33 @@
       "var": "VAR_HAIFA_CITY_STATE",
       "var_value": "1",
       "script": "HaifaCity_EventScript_WonderOffSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_HAIFA_CITY_STATE",
+      "var_value": "1",
+      "script": "HaifaCity_EventScript_WonderOffGoDown"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_HAIFA_CITY_STATE",
+      "var_value": "1",
+      "script": "HaifaCity_EventScript_WonderOffGoDown"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_HAIFA_CITY_STATE",
+      "var_value": "1",
+      "script": "HaifaCity_EventScript_WonderOffGoDown"
     }
   ],
   "bg_events": [

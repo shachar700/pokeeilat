@@ -38,7 +38,10 @@
     "gMapGroup_IndoorRoute124"
   ],
   "gMapGroup_MyTownsAndRoutes": [
-    "HaifaCity"
+    "HaifaCity",
+    "Route1",
+    "Route2",
+    "AcreTown"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

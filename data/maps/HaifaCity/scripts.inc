@@ -243,9 +243,29 @@ HaifaCity_Movement_BirchWalksAway:
 	walk_up
 	step_end
 
+HaifaCity_EventScript_WonderOffGoDown::
+	lock
+	msgbox HaifaCity_EventScript_WonderOffGoDown_Text_0
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerWalksDown
+	waitmovement 0
+	release
+	return
+
+
+HaifaCity_EventScript_WonderOffGoEast::
+	lock
+	msgbox HaifaCity_EventScript_WonderOffGoDown_Text_0
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerWalksLeft
+	waitmovement 0
+	release
+	return
+
+
 HaifaCity_EventScript_WonderOffSouth::
 	lock
-	msgbox HaifaCity_EventScript_WonderOffSouth_Text_0
+	msgbox HaifaCity_EventScript_WonderOffGoDown_Text_0
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerWalksUp
 	waitmovement 0
@@ -257,6 +277,14 @@ PlayerWalksUp:
 	walk_up
 	step_end
 
-HaifaCity_EventScript_WonderOffSouth_Text_0:
+PlayerWalksDown:
+	walk_down
+	step_end
+
+PlayerWalksLeft:
+	walk_left
+	step_end
+
+HaifaCity_EventScript_WonderOffGoDown_Text_0:
 	.string "I should probably not wonder off\n"
 	.string "without a Pokemon.$"

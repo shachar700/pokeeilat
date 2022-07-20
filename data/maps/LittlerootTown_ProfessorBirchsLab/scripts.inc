@@ -69,6 +69,7 @@ NewProfessor_EventScript_GiveStarter::
 	waitmoncry
 	compare VAR_RESULT, NO
 	goto_if_eq NewProfessor_EventScript_GiveStarter_2
+	setflag FLAG_SYS_POKEMON_GET
 	givemon VAR_STARTER_CHOICE, 5, ITEM_NONE
 	getpartysize
 	compare VAR_RESULT, 6

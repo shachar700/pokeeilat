@@ -33,15 +33,15 @@ LittlerootTown_BrendansHouse_1F_EventScript_Dad::
 	end
 
 LittlerootTown_BrendansHouse_1F_Text_MomLove:
-	.string "{COLOR RED}MOM:{COLOR DARK_GRAY} I love you honey.\n"
+	.string "{COLOR RED}{SHADOW LIGHT_RED}MOM:{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} I love you honey.\n"
 	.string "Take care on your journey.$"
 
 LittlerootTown_BrendansHouse_1F_Text_ComeCloser:
-	.string "{COLOR RED}MOM:{COLOR DARK_GRAY} Here you are!\n"
+	.string "{COLOR RED}{SHADOW LIGHT_RED}MOM:{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} Here you are!\n"
 	.string "We've been waiting, come sit with us.$"
 
 LittlerootTown_BrendansHouse_1F_Text_Journey:
-	.string "{COLOR RED}MOM:{COLOR DARK_GRAY} I hope you are all packed up and\n"
+	.string "{COLOR RED}{SHADOW LIGHT_RED}MOM:{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} I hope you are all packed up and\n"
 	.string "ready to go for your adventure.\p"
 	.string "Professor ARAUCARIA told us he'll give\n"
 	.string "you your very first POKéMON.\p"
@@ -50,7 +50,7 @@ LittlerootTown_BrendansHouse_1F_Text_Journey:
 	.string "We love you honey.$"
 
 LittlerootTown_BrendansHouse_1F_Text_CypressEvos:
-	.string "{COLOR BLUE}DAD:{COLOR DARK_GRAY} Don't do anything\n"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}DAD:{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} Don't do anything\n"
 	.string "you might regret in the future.\p"
 	.string "It's important to be on top of things.$"
 

@@ -245,6 +245,24 @@ HaifaCity_Movement_BirchWalksAway:
 	step_end
 `
 
+script HaifaCity_EventScript_WonderOffGoDown {
+	lock
+	msgbox(format("I should probably not wonder off without a Pokemon."))
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, PlayerWalksDown)
+	waitmovement(0)
+	release
+}
+
+script HaifaCity_EventScript_WonderOffGoEast {
+	lock
+	msgbox(format("I should probably not wonder off without a Pokemon."))
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, PlayerWalksLeft)
+	waitmovement(0)
+	release
+}
+
 script HaifaCity_EventScript_WonderOffSouth {
 	lock
 	msgbox(format("I should probably not wonder off without a Pokemon."))
@@ -256,5 +274,12 @@ script HaifaCity_EventScript_WonderOffSouth {
 
 movement PlayerWalksUp {
 	walk_up
-	step_end
+}
+
+movement PlayerWalksDown {
+	walk_down
+}
+
+movement PlayerWalksLeft {
+	walk_left
 }
