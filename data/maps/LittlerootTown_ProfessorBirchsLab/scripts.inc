@@ -154,6 +154,8 @@ ProfessorBirchStudy::
 
 PlayerGetsCloserToProf:
 	walk_up
+	walk_up
+	walk_up
 	walk_right
 	walk_right
 	walk_right
