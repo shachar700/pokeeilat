@@ -17,6 +17,8 @@ HaifaCity_EventScript_PickStarter::
 	waitmovement 0
 	applymovement LOCALID_BIRCH, HaifaCity_Movement_WalkInPlace   
 	waitmovement 0
+	applymovement LOCALID_BIRCH, HaifaCity_Movement_BirchGreet   
+	waitmovement 0
 	msgbox HaifaCity_Text_ProfIntro, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_BIRCH, HaifaCity_Movement_BirchWalksAway
@@ -101,135 +103,25 @@ HaifaCity_Text_PlayersMailbox:
 	.string "None of the letters are for me though.$"
 
 HaifaCity_Text_RivalsMailbox:
-	.string "Maya's mailbox…\n"
+	.string "Shir's mailbox…\n"
 	.string "It would be rude to sniff around.$"
 
 HaifaCity_Text_CityGym:
 	.string "HAIFA CITY GYM\n"
 	.string "Where the sea hits the shore.$"
 
-HaifaCity_Movement_BirchGreet:
-	face_left
-	step_end
-
-HaifaCity_Movement_PlayerGetsCloser:
-	walk_down
-	walk_right
-	walk_right
-	walk_down
-	face_right
-	step_end
-
 HaifaCity_Movement_WalkInPlace:
 	walk_in_place_slow_left
+	step_end
+
+HaifaCity_Movement_BirchGreet:
+	walk_up
+	walk_left
 	walk_left
 	step_end
 
-HaifaCity_Movement_ProfWalksToLab:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-HaifaCity_Movement_PlayerWalksToLab:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_up
-	step_end
-
-HaifaCity_Movement_ProfApproachDoor:
-	delay_16
-	delay_8
-	walk_up
-	step_end
-
-HaifaCity_Movement_ProfEnterHouse:
-	walk_up
-	set_invisible
-	step_end
-
-HaifaCity_Movement_PlayerApproachDoor:
-	delay_16
-	delay_8
-	walk_up
-	step_end
-
-HaifaCity_Movement_PlayerEnterHouse:
-	walk_up
-	set_invisible
-	step_end
-
 HaifaCity_Movement_BirchWalksAway:
+	walk_right
 	walk_right
 	walk_right
 	walk_right

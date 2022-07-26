@@ -42,7 +42,7 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
 #define FLAG_HIDE_BIRCH_HAIFA    0x20 // Pokeeilat flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_HIDE_SHIR_ROUTE_1    0x21 // Pokeeilat Flag
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag

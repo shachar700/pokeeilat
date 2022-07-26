@@ -1,1 +1,21 @@
 mapscripts Route1_MapScripts {}
+
+script Route1_EventScript_ShirRivalBattle {
+
+    trainerbattle_single(TRAINER_MAY_ROUTE_103_TORCHIC, Shir_Intro, Shir_Outro)
+    msgbox(PostBattle_Shir, MSGBOX_AUTOCLOSE)
+    waitmessage
+    end
+}
+
+text Shir_Intro {
+    "Hi I'm Shir, lets battle!"
+}
+
+text Shir_Outro {
+    "I was not ready for that."
+}
+
+text PostBattle_Shir {
+    "I'll win next time."
+}
