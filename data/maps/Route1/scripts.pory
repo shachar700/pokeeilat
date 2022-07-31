@@ -1,3 +1,145 @@
+raw `
+.set LOCALID_RIVAL, 1
+
+
+Route1_EventScript_RivalTrigger1::
+	setvar VAR_0x8008, 1
+	goto Route1_EventScript_RivalScene
+	end
+
+Route1_EventScript_RivalTrigger2::
+	setvar VAR_0x8008, 2
+	goto Route1_EventScript_RivalScene
+	end
+
+Route1_EventScript_RivalScene::
+	lockall
+	call Route1_EventScript_PlayMayMusic
+	applymovement LOCALID_RIVAL, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_RIVAL, Common_Movement_Delay48
+	waitmovement 0
+	delay 30
+	call_if_eq VAR_0x8008, 1, Route1_EventScript_RivalApproachPlayer1
+	call_if_eq VAR_0x8008, 2, Route1_EventScript_RivalApproachPlayer2
+	checkplayergender
+	goto Route1_EventScript_MayaBattle
+	releaseall
+	end
+
+Route1_EventScript_PlayMayMusic::
+	playbgm MUS_ENCOUNTER_MAY, TRUE
+	return
+
+Route1_EventScript_MayaBattle::
+	msgbox Route1_Text_MayLetsBattle, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, Route1_Text_MayDefeated
+	goto Route1_EventScript_MayDefeated
+	end
+
+Route1_EventScript_MayDefeated::
+	msgbox Route1_Text_MayaTakeThis, MSGBOX_DEFAULT
+	call Route1_EventScript_GiveItemfinder
+	msgbox Route1_Text_MayaExplainItemfinder, MSGBOX_DEFAULT
+	goto Route1_EventScript_RivalExit
+	end
+
+Route1_EventScript_GiveItemfinder::
+	giveitem ITEM_DOWSING_MACHINE
+	return
+
+Route1_EventScript_RivalExit::
+	closemessage
+	call_if_eq VAR_0x8008, 1, Route1_EventScript_RivalExit1
+	call_if_eq VAR_0x8008, 2, Route1_EventScript_RivalExit2
+	removeobject LOCALID_RIVAL
+	setvar VAR_ROUTE1_STATE, 1
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+
+Route1_EventScript_RivalApproachPlayer1::
+	applymovement LOCALID_RIVAL, Route1_Movement_RivalApproachPlayer1
+	waitmovement 0
+	return
+
+Route1_EventScript_RivalApproachPlayer2::
+	applymovement LOCALID_RIVAL, Route1_Movement_RivalApproachPlayer2
+	waitmovement 0
+	return
+
+
+Route1_Movement_RivalApproachPlayer1:
+	walk_down
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+Route1_Movement_RivalApproachPlayer2:
+	walk_down
+	step_end
+
+Route1_Movement_RivalExit1:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route1_Movement_RivalExit2:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_down
+	step_end
+
+Route1_EventScript_RivalExit1::
+	applymovement LOCALID_RIVAL, Route1_Movement_RivalExit1
+	waitmovement 0
+	return
+
+Route1_EventScript_RivalExit2::
+	applymovement LOCALID_RIVAL, Route1_Movement_RivalExit2
+	waitmovement 0
+	return
+
+Route1_Text_MayLetsBattle:
+	.string "MAY: Hi, {PLAYER}{KUN}, long time no see!\p"
+	.string "While I was searching for other\n"
+	.string "POKéMON, my POKéMON grew stronger.\p"
+	.string "So…\n"
+	.string "How about a little battle?$"  
+
+Route1_Text_MayDefeated:
+	.string "Yikes!\n"
+	.string "You're better than I expected!$"
+
+Route1_Text_MayaTakeThis:
+	.string "MAYA: {PLAYER}, you've trained\n"
+	.string "without me noticing…\p"
+	.string "Good enough!\n"
+	.string "Here, take this.$"
+
+Route1_Text_MayaExplainItemfinder:
+	.string "MAYA: That's a DOWSING MACHINE.\p"
+	.string "Use it to root around for items that\n"
+	.string "aren't visible.\p"
+	.string "If it senses something, it emits\n"
+	.string "a sound.\p"
+	.string "Anyway, I'm off to look for new\n"
+	.string "POKéMON.$"  
+`
+
 mapscripts Route1_MapScripts {}
 
 script Route1_EventScript_YardenRivalBattle {

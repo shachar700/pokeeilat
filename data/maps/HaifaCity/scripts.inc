@@ -82,7 +82,7 @@ HaifaCity_Text_PlayersMailbox:
 	.string "None of the letters are for me though.$"
 
 HaifaCity_Text_RivalsMailbox:
-	.string "Shir's mailbox…\n"
+	.string "Maya's mailbox…\n"
 	.string "It would be rude to sniff around.$"
 
 HaifaCity_Text_CityGym:
@@ -138,7 +138,7 @@ HaifaCity_EventScript_PickStarter::
 	waitmovement 0
 	closedoor 39, 40
 	waitdooranim
-	setflag FLAG_HIDE_BIRCH_HAIFA
+	setflag FLAG_HIDE_HAIFA_CITY_PROF
 	setvar VAR_HAIFA_CITY_STATE, 1
 	hideobjectat OBJ_EVENT_ID_PLAYER, 0
 	warpsilent MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5

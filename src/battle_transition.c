@@ -546,7 +546,7 @@ static const TransitionStateFunc sMugshot_Funcs[] =
 
 static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
 {
-    [MUGSHOT_MAY]      = TRAINER_PIC_MAY,
+    [MUGSHOT_MAYA]     = TRAINER_PIC_LEADER_ROXANNE,
     [MUGSHOT_SIDNEY]   = TRAINER_PIC_ELITE_FOUR_SIDNEY,
     [MUGSHOT_PHOEBE]   = TRAINER_PIC_ELITE_FOUR_PHOEBE,
     [MUGSHOT_GLACIA]   = TRAINER_PIC_ELITE_FOUR_GLACIA,
@@ -555,7 +555,7 @@ static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
 };
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 {
-    [MUGSHOT_MAY]    =   {0x200, 0x200},
+    [MUGSHOT_MAYA]    =  {0x200, 0x200},
     [MUGSHOT_SIDNEY] =   {0x200, 0x200},
     [MUGSHOT_PHOEBE] =   {0x200, 0x200},
     [MUGSHOT_GLACIA] =   {0x1B0, 0x1B0},
@@ -564,7 +564,7 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 };
 static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
 {
-    [MUGSHOT_MAY] =      { 0,  0},
+    [MUGSHOT_MAYA] =      { 0,  0},
     [MUGSHOT_SIDNEY] =   { 0,  0},
     [MUGSHOT_PHOEBE] =   { 0,  0},
     [MUGSHOT_GLACIA] =   {-4,  4},
@@ -902,7 +902,7 @@ static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
 {
-    [MUGSHOT_MAY]    = sMugshotPal_Glacia,
+    [MUGSHOT_MAYA]    = sMugshotPal_Glacia,
     [MUGSHOT_SIDNEY] = sMugshotPal_Sidney,
     [MUGSHOT_PHOEBE] = sMugshotPal_Phoebe,
     [MUGSHOT_GLACIA] = sMugshotPal_Glacia,

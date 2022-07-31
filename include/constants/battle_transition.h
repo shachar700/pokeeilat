@@ -1,7 +1,7 @@
 #ifndef GUARD_CONSTANTS_BATTLE_TRANSITION_H
 #define GUARD_CONSTANTS_BATTLE_TRANSITION_H
 
-#define MUGSHOT_MAY         0
+#define MUGSHOT_MAYA        0
 #define MUGSHOT_SIDNEY      1
 #define MUGSHOT_PHOEBE      2
 #define MUGSHOT_GLACIA      3
