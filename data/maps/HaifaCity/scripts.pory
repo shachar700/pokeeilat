@@ -2,33 +2,12 @@ raw `
 .set LOCALID_BIRCH, 5
 
 HaifaCity_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, HaifaCity_EventScript_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, HaifaCity_OnFrame
 	.byte 0
 
-HaifaCity_EventScript_OnFrame:
+HaifaCity_OnFrame:
 	map_script_2 VAR_HAIFA_CITY_STATE, 0, HaifaCity_EventScript_PickStarter	
 	.2byte 0
-
-HaifaCity_EventScript_PickStarter::
-	lockall
-	applymovement LOCALID_BIRCH, Common_Movement_FacePlayer
-	waitmovement 0
-	playse SE_PIN	
-	applymovement LOCALID_BIRCH, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_BIRCH, HaifaCity_Movement_WalkInPlace   
-	waitmovement 0
-	applymovement LOCALID_BIRCH, HaifaCity_Movement_BirchGreet   
-	waitmovement 0
-	msgbox HaifaCity_Text_ProfIntro, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_BIRCH, HaifaCity_Movement_BirchWalksAway
-	waitmovement 0
-	removeobject LOCALID_BIRCH
-	setflag FLAG_HIDE_BIRCH_HAIFA
-	setvar VAR_HAIFA_CITY_STATE, 1
-	releaseall
-	end
 
 HaifaCity_EventScript_CityGym::
 	msgbox HaifaCity_Text_CityGym, MSGBOX_NPC
@@ -71,7 +50,7 @@ HaifaCity_Text_ProfIntro:
 	.string "I came here to let you know that\n"
 	.string "your very first Pokemon is\l"
 	.string "waiting for you.\p"
-	.string "Come see me at my POKEMON LAB.$"
+	.string "Follow me to my POKEMON LAB.$"
 
 HaifaCity_Text_CanUsePCToStoreItems:
 	.string "I never thought of the day people could\n"
@@ -121,57 +100,55 @@ HaifaCity_Movement_BirchGreet:
 	walk_left
 	step_end
 
-HaifaCity_Movement_BirchWalksAway:
+HaifaCity_Movement_ProfEntersHouse:
+	walk_up
+	set_invisible
+	step_end
+
+HaifaCity_Movement_PlayerEntersHouse:
 	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
 	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	set_invisible
 	step_end
 `
 
-script HaifaCity_EventScript_WonderOffGoDown {
+script HaifaCity_EventScript_PickStarter {
 	lock
-	msgbox(format("I should probably not wonder off without a Pokemon."))
-	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, PlayerWalksDown)
+	applymovement(LOCALID_BIRCH, Common_Movement_FacePlayer)
 	waitmovement(0)
-	release
-}
-
-script HaifaCity_EventScript_WonderOffGoEast {
-	lock
-	msgbox(format("I should probably not wonder off without a Pokemon."))
-	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, PlayerWalksLeft)
+	playse(SE_PIN)	
+	playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
+	applymovement(LOCALID_BIRCH, Common_Movement_ExclamationMark)
 	waitmovement(0)
-	release
-}
-
-script HaifaCity_EventScript_WonderOffSouth {
-	lock
-	msgbox(format("I should probably not wonder off without a Pokemon."))
-	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, PlayerWalksUp)
+	applymovement(LOCALID_BIRCH, HaifaCity_Movement_WalkInPlace)   
 	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(0)
+	applymovement(LOCALID_BIRCH, HaifaCity_Movement_BirchGreet)   
+	waitmovement(0)
+	msgbox(HaifaCity_Text_ProfIntro, MSGBOX_DEFAULT)
+	closemessage
+	playbgm(MUS_FOLLOW_ME, FALSE)
+	applymovement(LOCALID_BIRCH, HaifaCity_Movement_WalksToLab)
+	applymovement(OBJ_EVENT_ID_PLAYER, HaifaCity_Movement_WalksToLab)
+	waitmovement(0)
+	opendoor(39, 40)
+	waitdooranim
+	applymovement(LOCALID_BIRCH, HaifaCity_Movement_ProfEntersHouse)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, HaifaCity_Movement_PlayerEntersHouse)
+	waitmovement(0)
+	closedoor(39, 40)
+	waitdooranim
+	setflag(FLAG_HIDE_BIRCH_HAIFA)
+	setvar(VAR_HAIFA_CITY_STATE, 1)
+	hideobjectat(OBJ_EVENT_ID_PLAYER, 0)
+	warpsilent(MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5)
+	waitstate
 	release
+	end
 }
 
-movement PlayerWalksUp {
-	walk_up
-}
-
-movement PlayerWalksDown {
-	walk_down
-}
-
-movement PlayerWalksLeft {
-	walk_left
+movement HaifaCity_Movement_WalksToLab {
+	walk_right * 10
 }

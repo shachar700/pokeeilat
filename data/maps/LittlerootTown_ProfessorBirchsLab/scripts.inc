@@ -1,6 +1,15 @@
 .set LOCALID_BIRCH, 1
 
+ProfessorBirchsLab_OnWarp:
+	map_script_2 VAR_TEMP_1, 0, ProfessorBirchsLab_EventScript_PlayerTurnNorth
+	.2byte 0
+
+ProfessorBirchsLab_EventScript_PlayerTurnNorth::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end
+
 LittlerootTown_ProfessorBirchsLab_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, ProfessorBirchsLab_OnWarp
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_ProfessorBirchsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
@@ -18,10 +27,6 @@ ComeCloser::
 	applymovement LOCALID_BIRCH, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox ComeCloser_Text_0
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, PlayerGetsCloserToProf
-	waitmovement 0
-	msgbox ComeCloser_Text_1
 	closemessage
 	call PlayerChoosesStarter
 	release
@@ -152,24 +157,11 @@ ProfessorBirchStudy::
 	end
 
 
-PlayerGetsCloserToProf:
-	walk_up
-	walk_up
-	walk_up
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
 ComeCloser_Text_0:
-	.string "Oh Hi there {PLAYER}! Come closer so\n"
-	.string "you can pick your first Pokemon.$"
-
-ComeCloser_Text_1:
-	.string "To get started on your journey, I'm\n"
-	.string "gonna let you choose one of my little\l"
-	.string "Pokemon that got hatched lately.\l"
-	.string "Choose wisely.$"
+	.string "I've been preparing these Pokemon for\n"
+	.string "you. To get started on your journey,\l"
+	.string "I'm gonna let you choose one of my\l"
+	.string "little Pokemon. Choose wisely.$"
 
 PlayerChoosesStarter_Text_0:
 	.string "Which starter will you choose?$"

@@ -1,7 +1,7 @@
 mapscripts Route1_MapScripts {}
 
-script Route1_EventScript_ShirRivalBattle {
-
+script Route1_EventScript_YardenRivalBattle {
+    
     trainerbattle_single(TRAINER_MAY_ROUTE_103_TORCHIC, Shir_Intro, Shir_Outro)
     msgbox(PostBattle_Shir, MSGBOX_AUTOCLOSE)
     waitmessage
@@ -9,7 +9,7 @@ script Route1_EventScript_ShirRivalBattle {
 }
 
 text Shir_Intro {
-    "Hi I'm Shir, lets battle!"
+    "Hi I'm Yarden, lets battle!"
 }
 
 text Shir_Outro {

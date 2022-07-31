@@ -1,7 +1,16 @@
 raw `
 .set LOCALID_BIRCH, 1
+
+ProfessorBirchsLab_OnWarp:
+	map_script_2 VAR_TEMP_1, 0, ProfessorBirchsLab_EventScript_PlayerTurnNorth
+	.2byte 0
+
+ProfessorBirchsLab_EventScript_PlayerTurnNorth::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end	
 `
 mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: ProfessorBirchsLab_OnWarp
     MAP_SCRIPT_ON_FRAME_TABLE [
        VAR_HAIFA_CITY_STATE, 1: ComeCloser
     ]
@@ -15,11 +24,7 @@ script ComeCloser {
     playse(SE_PIN)
 	applymovement(LOCALID_BIRCH, Common_Movement_ExclamationMark)
 	waitmovement(0)
-    msgbox(format("Oh Hi there {PLAYER}! Come closer so you can pick your first Pokemon."))
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, PlayerGetsCloserToProf)
-    waitmovement(0)
-    msgbox(format("To get started on your journey, I'm gonna let you choose one of my little Pokemon that got hatched lately. Choose wisely."))
+    msgbox(format("I've been preparing these Pokemon for you. To get started on your journey, I'm gonna let you choose one of my little Pokemon. Choose wisely."))
     closemessage
     call(PlayerChoosesStarter)
     release
@@ -125,9 +130,4 @@ script ProfessorBirchStudy {
     msgbox(format("I study the Pseudo-Legendary Pokemon who has a lot of strength compared to other Pokemon."))
     release
     end
-}
-
-movement PlayerGetsCloserToProf {
-    walk_up * 3
-    walk_right * 3
 }

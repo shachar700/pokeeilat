@@ -2,7 +2,7 @@ Route1_MapScripts::
 	.byte 0
 
 
-Route1_EventScript_ShirRivalBattle::
+Route1_EventScript_YardenRivalBattle::
 	trainerbattle_single TRAINER_MAY_ROUTE_103_TORCHIC, Shir_Intro, Shir_Outro
 	msgbox PostBattle_Shir, MSGBOX_AUTOCLOSE
 	waitmessage
@@ -10,7 +10,7 @@ Route1_EventScript_ShirRivalBattle::
 
 
 Shir_Intro::
-	.string "Hi I'm Shir, lets battle!$"
+	.string "Hi I'm Yarden, lets battle!$"
 
 Shir_Outro::
 	.string "I was not ready for that.$"
