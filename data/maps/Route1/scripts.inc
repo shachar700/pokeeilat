@@ -1,6 +1,5 @@
 .set LOCALID_RIVAL, 1
 
-
 Route1_EventScript_RivalTrigger1::
 	setvar VAR_0x8008, 1
 	goto Route1_EventScript_RivalScene

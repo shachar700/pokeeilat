@@ -1,5 +1,15 @@
 InsideOfTruck_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, InsideOfTruck_OnWarp
 	.byte 0
+
+InsideOfTruck_OnWarp:
+	map_script_2 VAR_TEMP_1, 0, InsideOfTruck_GiveRunningShoes
+	.2byte 0
+
+InsideOfTruck_GiveRunningShoes::
+	setflag FLAG_SYS_B_DASH
+	setvar VAR_TEMP_1, 1 @ get run shoes on warp 
+	end
 
 InsideOfTruck_EventScript_Sign::
 	msgbox InsideOfTruck_Text_Sign, MSGBOX_SIGN
@@ -22,14 +32,13 @@ InsideOfTruck_EventScript_SmashMale2::
 Script_InsideOfTruck_EventScript_Celebi::
 	lock
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
-	setvar VAR_TEMP_0, 1
-	applymovement 4, CelebiMovement
+	applymovement 4, CelebiApproaches
 	waitmovement 0
 	playmoncry SPECIES_CELEBI, 0
 	msgbox InsideOfTruck_Text_Celebi, MSGBOX_DEFAULT
 	waitmoncry
 	closemessage
-	applymovement 4, CelebiMovement2
+	applymovement 4, CelebiLeaves
 	waitmovement 0
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F, 255, 8, 5
 	end
@@ -58,7 +67,7 @@ InsideOfTruck_Text_Celebi::
 	.string "The sound coming from Celebi's voice\n"
 	.string "sounded like a stress single.$"
 
-CelebiMovement:
+CelebiApproaches:
 	walk_down
 	walk_down
 	face_right
@@ -68,7 +77,7 @@ CelebiMovement:
 	face_down
 	step_end
 	
-CelebiMovement2:
+CelebiLeaves:
 	walk_up	
 	walk_up	
 	walk_up	

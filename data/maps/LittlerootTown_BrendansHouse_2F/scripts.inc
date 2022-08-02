@@ -72,7 +72,7 @@ PlayersHouse_2F_EventScript_PokeballDoll::
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"
-	.string "Better set it and start it!$"
+	.string "Probably low battery.$"
 
 PlayersHouse_2F_Text_Notebook:
 	.string "{PLAYER} flipped open the notebook.\p"
